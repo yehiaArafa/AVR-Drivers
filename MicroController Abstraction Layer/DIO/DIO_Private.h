@@ -53,7 +53,6 @@
 #define PIN29   29
 #define PIN30   30
 #define PIN31   31
-#define PIN32   32
 
 /***** CONCATINATION *****/
 

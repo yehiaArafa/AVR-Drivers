@@ -1,8 +1,9 @@
 #include "Types.h"
+#include "Util.h"
 #include "DIO_Config.h"
 #include "DIO_Private.h"
 #include "DIO_Interface.h"
-#include "Util.h"
+
 
 
 void DIO_INIT(void){
