@@ -11,7 +11,7 @@
 
 
 void SEGMENT_INIT(void){
-	
+ 	
 	SEGMENT_clearDisplay();
 	#if SEGMENT_commonType ==0
 		DIO_writePin(SEGMENT_commonPin,LOW);
