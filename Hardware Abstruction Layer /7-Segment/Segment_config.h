@@ -4,17 +4,17 @@
 /***** 7-SEGMENT COMMON TYPE *****/
 // common cathode = 0 //
 // common anode   = 1 //
-#define commonType 	0 
+#define SEGMENT_commonType 	0 
 
 /***** 7-SEGMENT PINS *****/  
-#define A           PIN16
-#define B	        PIN17
-#define C           PIN18
-#define D           PIN19
-#define E           PIN20
-#define F           PIN21
-#define G           PIN22
-#define commonPin   PIN23
+#define SEGMENT_A           PIN16
+#define SEGMENT_B	        PIN17
+#define SEGMENT_C           PIN18
+#define SEGMENT_D           PIN19
+#define SEGMENT_E           PIN20
+#define SEGMENT_F           PIN21
+#define SEGMENT_G           PIN22
+#define SEGMENT_commonPin   PIN23
 
 
 #endif
