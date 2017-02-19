@@ -17,8 +17,8 @@
 #define LCD_E       PIN10
 
 /***** CONFIGRATIONS *****/
-#define LCD_READ     0
-#define LCD_WRITE    1
+#define LCD_READ     1
+#define LCD_WRITE    0
 
 #define LCD_COMMAND  0
 #define LCD_DATA     1
@@ -26,7 +26,7 @@
 #define LCD_DISABLE  0
 #define LCD_ENABLE   1
 
-#define LCD_initSTATE   LCD_DISABLE
-
+#define LCD_colBiteNumber  16
+#define LCD_rowbiteNumber  2
 
 #endif

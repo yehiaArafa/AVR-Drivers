@@ -14,11 +14,10 @@
 void LCD_INIT(void){
 		
 	//delay 15 ms//
-	_delay_ms(15);	
-	LCD_writeCommand(0x38);
-	LCD_writeCommand(0x0E);
-	LCD_writeCommand(0x01);
-	
+	_delay_ms(15);
+	LCD_writeCommand(0x38); // 2 lines screen
+	LCD_cursorON();
+	LCD_clearScreen();
 }
 
 
@@ -28,6 +27,27 @@ void LCD_clearScreen(void){
 
 void LCD_displayOff(void){
 	LCD_writeCommand(0x08);
+}
+
+void LCD_cursorON(){
+	LCD_writeCommand(0x0E);
+}
+
+void LCD_cursorBlinking(){
+	LCD_writeCommand(0x0F);
+}
+
+void LCD_cursorAtFirstLine(void){
+	LCD_writeCommand(0x80);
+}
+
+u8 LCD_cursorAtSecondLine(void){
+	#if LCD_rowbiteNumber==2
+		LCD_writeCommand(0xc0);
+		return OK;
+	#elif LCD_rowbiteNumber==1
+		return ERROR;
+	#endif	
 }
 
 
@@ -42,12 +62,12 @@ void LCD_writeCommand(u8 command){
 	DIO_writePin(LCD_D6,GET_BIT(command,6));
 	DIO_writePin(LCD_D7,GET_BIT(command,7));
 	
-	DIO_writePin(LCD_RS,LCD_COMMAND);
-	DIO_writePin(LCD_RW,LCD_WRITE);
+	DIO_writePin(LCD_RS,LCD_COMMAND); //RS -> LOW
+	DIO_writePin(LCD_RW,LCD_WRITE); // RW -> LOW
 	
-	DIO_writePin(LCD_E,LCD_ENABLE);
+	DIO_writePin(LCD_E,LCD_ENABLE); // E --> HIGH
 	_delay_us(1);
-	DIO_writePin(LCD_E,LCD_DISABLE);
+	DIO_writePin(LCD_E,LCD_DISABLE); //E --> LOW
 	
 	if(command==0x01 || command == 0x02)
 		//delay 2 ms
@@ -55,10 +75,11 @@ void LCD_writeCommand(u8 command){
 	else
 		//delay 100 us
 		_delay_us(100);
-	
 }
 
+
 void LCD_writeChar(u8 data){
+	
 	
 	DIO_writePin(LCD_D0,GET_BIT(data,0));
 	DIO_writePin(LCD_D1,GET_BIT(data,1));
@@ -69,24 +90,26 @@ void LCD_writeChar(u8 data){
 	DIO_writePin(LCD_D6,GET_BIT(data,6));
 	DIO_writePin(LCD_D7,GET_BIT(data,7));
 	
-	DIO_writePin(LCD_RS,LCD_DATA);
-	DIO_writePin(LCD_RW,LCD_WRITE);
+	DIO_writePin(LCD_RS,LCD_DATA); //RS --> HIGH
+	DIO_writePin(LCD_RW,LCD_WRITE); //RW --> HIGH 
 	
-	DIO_writePin(LCD_E,LCD_ENABLE);
+	DIO_writePin(LCD_E,LCD_ENABLE);//E --> HIGH
 	_delay_us(1);
-	DIO_writePin(LCD_E,LCD_DISABLE);
+	DIO_writePin(LCD_E,LCD_DISABLE);//E --> LOW
 	
-	//delay 100 ms
-	_delay_us(100);
+	//delay 100 us
+	_delay_ms(200);
 }
 
 
-void LCD_writeString(u8 *ptrToString){
+
+
+void LCD_writeString(u8 ptrToString[100]){
 
 	u8 counter;
 	for(counter=0;ptrToString[counter]!='\0';counter++){
 		LCD_writeChar(ptrToString[counter]);
-		LCD_writeCommand(0x06);
+		
 	}	
 }
 
