@@ -44,13 +44,13 @@ u8 DIO_readPin(u8 pinNumber, u8 *ptrValue){
 	if(pinNumber<NUMBER_OF_PINS && pinNumber >= 0){
 		switch (pinNumber/PINS_PER_PORT)
 		{
-			case 0: *ptrValue=GET_BIT(PORTA,(pinNumber%PINS_PER_PORT));
+			case 0: *ptrValue=GET_BIT(PINA,(pinNumber%PINS_PER_PORT));
 					break;
-			case 1: *ptrValue=GET_BIT(PORTB,(pinNumber%PINS_PER_PORT));
+			case 1: *ptrValue=GET_BIT(PINB,(pinNumber%PINS_PER_PORT));
 					break;
-			case 2: *ptrValue=GET_BIT(PORTC,(pinNumber%PINS_PER_PORT));
+			case 2: *ptrValue=GET_BIT(PINC,(pinNumber%PINS_PER_PORT));
 					break;
-			case 3: *ptrValue=GET_BIT(PORTD,(pinNumber%PINS_PER_PORT));
+			case 3: *ptrValue=GET_BIT(PIND,(pinNumber%PINS_PER_PORT));
 					break;
 		}
 		return OK;
