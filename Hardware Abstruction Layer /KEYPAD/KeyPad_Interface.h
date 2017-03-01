@@ -1,9 +1,7 @@
-#ifndef SEGMENT_INTERFACE_H_
-#define SEGMENT_INTERFACE_H_
+#ifndef keyPad_INTERFACE_H_
+#define keyPad_INTERFACE_H_
 
+u8 KEYPAD_getPressedKey(void);
 
-extern void SEGMENT_INIT(void);
-extern u8 SEGMENT_clearDisplay();
-extern u8 SEGMENT_display(u8 value);
 
 #endif
