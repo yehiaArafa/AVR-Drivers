@@ -14,6 +14,9 @@ extern u8 DIO_writePin(u8 pinNumber,u8 value);
 //read value from pin
 extern u8 DIO_readPin(u8 pinNumber,u8 *value);
 
+//toggle the port value
+extern u8 DIO_togglePin(u8 pinNumber);
+
 //write value to port
 extern u8 DIO_writePort(u8 portLetter, u8 value);
 

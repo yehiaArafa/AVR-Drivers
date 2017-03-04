@@ -59,3 +59,23 @@ u8 DIO_readPin(u8 pinNumber, u8 *ptrValue){
 		return ERROR;
 	}
 }
+
+u8 DIO_togglePin(u8 pinNumber){
+	if(pinNumber<NUMBER_OF_PINS && pinNumber >= 0){
+		switch (pinNumber/PINS_PER_PORT)
+		{
+			case 0: TOGGLE_BIT(PORTA,(pinNumber%PINS_PER_PORT));
+					break;
+			case 1: TOGGLE_BIT(PORTA,(pinNumber%PINS_PER_PORT));
+					break;
+			case 2: TOGGLE_BIT(PORTA,(pinNumber%PINS_PER_PORT));
+					break;
+			case 3: TOGGLE_BIT(PORTA,(pinNumber%PINS_PER_PORT));
+					break;
+		}
+		return OK;
+	}
+	else{
+		return ERROR;
+	}
+}

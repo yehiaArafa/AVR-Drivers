@@ -38,10 +38,10 @@
 
 /****** PINS INITIAL VALUES ******/
 
-#define DIO_PIN0_INIT   HIGH
+#define DIO_PIN0_INIT   LOW
 #define DIO_PIN1_INIT   LOW
-#define DIO_PIN2_INIT   HIGH
-#define DIO_PIN3_INIT   HIGH
+#define DIO_PIN2_INIT   LOW
+#define DIO_PIN3_INIT   LOW
 #define DIO_PIN4_INIT   LOW
 #define DIO_PIN5_INIT   LOW
 #define DIO_PIN6_INIT   LOW
